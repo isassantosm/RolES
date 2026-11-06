@@ -1,9 +1,12 @@
+using RolES.Backend.Dados;
 using RolES.Backend.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 
+builder.Services.AddSingleton<BdConexao>();
+    
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
