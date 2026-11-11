@@ -9,7 +9,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<BdConexao>();
 builder.Services.AddScoped<UsuarioServicos>();
-    
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -33,11 +33,10 @@ app.MapGet("/", () => // Metodo sem nome
 
 app.MapPost("/usuario", async (CadastroUsuarioDto requestBody, UsuarioServicos uServicos) =>
 {
-
     try
     {
         var linhasAfetadas = await uServicos.AdicionarAsync(requestBody);
-            
+
         if (linhasAfetadas > 0) return Results.Created();
 
         return Results.Conflict(new
@@ -55,6 +54,30 @@ app.MapPost("/usuario", async (CadastroUsuarioDto requestBody, UsuarioServicos u
     catch
     {
         return Results.InternalServerError(500);
+    }
+});
+
+app.MapPost("/login", async (LoginUsuarioDto CorpoRequisicao, UsuarioServicos uServicos) =>
+{
+    try
+    {
+        var usuarioEncontrado = await uServicos.BuscarPorEmailAsync(CorpoRequisicao.Email);
+
+        if (usuarioEncontrado == null)
+            return Results.NotFound(new
+                {
+                    Mensagem = "O usuário não foi encontrado."
+                });
+        if (CorpoRequisicao.Senha != usuarioEncontrado.Senha)
+            return Results.BadRequest(new
+            {
+                Mensagem = "Email/Senha estão incorretos."
+            });
+        return Results.Ok();
+    }
+    catch
+    {
+        return Results.InternalServerError();
     }
 });
 
