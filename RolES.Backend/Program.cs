@@ -74,7 +74,7 @@ app.MapPost("/login", async (LoginUsuarioDto CorpoRequisicao, UsuarioServicos uS
                 Mensagem = "Email/Senha estão incorretos."
             });
         return Results.Ok();
-    }
+    }  
     catch
     {
         return Results.InternalServerError();

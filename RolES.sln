@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolES.Backend", "RolES.Backend\RolES.Backend.csproj", "{DECD2DE9-231C-4542-B94B-6F999FD0D64B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolES.Frontend", "RolES.Frontend\RolES.Frontend.csproj", "{833642DC-D636-4D1F-9D10-BA31C6B6A1CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{DECD2DE9-231C-4542-B94B-6F999FD0D64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DECD2DE9-231C-4542-B94B-6F999FD0D64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DECD2DE9-231C-4542-B94B-6F999FD0D64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{833642DC-D636-4D1F-9D10-BA31C6B6A1CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{833642DC-D636-4D1F-9D10-BA31C6B6A1CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{833642DC-D636-4D1F-9D10-BA31C6B6A1CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{833642DC-D636-4D1F-9D10-BA31C6B6A1CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
